@@ -1,0 +1,7 @@
+﻿@using BlazorUI.Components.Base
+@inherits BBaseComponent
+
+<button @onclick="HandleClickAsync" class="@CssClass" disabled="@Disabled">
+    @ChildContent
+</button>
+    

@@ -1,6 +1,6 @@
-﻿using BlazorUI.Components.Shared.Interfaces;
+﻿using BUI.Shared.Interfaces;
 
-namespace BlazorUI.Components.Shared.Handlers;
+namespace BUI.Shared.Handlers;
 
 public static class ClickHandler
 {

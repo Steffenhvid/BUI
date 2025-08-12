@@ -1,10 +1,9 @@
-﻿namespace BlazorUI.Components.Shared.Enums;
+﻿namespace BUI.Shared.Enums;
 
 public enum Size
 {
-    Tiny,
+    Normal,
     Small,
     Medium,
     Large,
-    ExtraLarge
 }

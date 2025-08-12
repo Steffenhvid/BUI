@@ -1,11 +1,13 @@
-﻿using BlazorUI.Components.Shared.Enums;
-using BlazorUI.Components.Shared.Extensions;
+﻿using BUI.Shared.Enums;
+using BUI.Theming.Interfaces;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorUI.Components.Base;
+namespace BUI.Components.Base;
 
-public abstract class BBaseComponent : ComponentBase
+public abstract class BComponentBase : ComponentBase
 {
+    [Inject] protected IThemeProvider Theme { get; private set; } = default!;
+
     // ----------------------
     // Generic UI parameters
     // ----------------------
@@ -44,25 +46,7 @@ public abstract class BBaseComponent : ComponentBase
     // ----------------------
     // CSS helper
     // ----------------------
-    protected string BuildCss(params string[] additionalClasses)
-    {
-        var baseClasses = new List<string>();
-
-        if (Color != Color.Default)
-            baseClasses.Add(Color.ToCss());
-
-        if (Size != Size.Medium)
-            baseClasses.Add(Size.ToCss());
-
-        if (Disabled)
-            baseClasses.Add("opacity-50 cursor-not-allowed");
-
-        baseClasses.AddRange(additionalClasses);
-
-        if (!string.IsNullOrWhiteSpace(Class))
-            baseClasses.Add(Class);
-
-        return string.Join(" ", baseClasses.Where(c => !string.IsNullOrWhiteSpace(c)));
-    }
+    protected virtual string BuildCss(params string[] classes) =>
+           string.Join(" ", classes.Where(c => !string.IsNullOrWhiteSpace(c)));
 
 }

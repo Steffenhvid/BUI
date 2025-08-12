@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace BlazorUI.Components.Shared.Interfaces;
+namespace BUI.Shared.Interfaces;
 
 public interface IClickable
 {
